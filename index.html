@@ -3,41 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ombu Café</title>
+    <meta name="descripcion" content="Café de especialidad.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://conts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Work+Sans:wght@400;600;700&display=swap" rel="sylesheet">
     <link rel="stylesheet" href="dist/css/estilos.css">
 </head>
 <body>
 
-    <header>
-        <div class="Logo">Café</div>
-
-        <button class="ambugeza" id="btnMenu" aria-label="Menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav id="menu">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Cafés</a></li>
-                <li><a href="#">Menú</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <h1>Bienvenido al Café</h1>
-        <p>
-            Decubre el mejor café de origen negros.
-        </p>
-
-        <div class="cafe-card">
-            <h2>Café del día</h2>
-            <p><strong>Colombia supremo</strong> - Notas de chocolate.</p>
+    <header class="cabecera">
+        <div class="cabecera-int">
+            <a class="logo" href="index.html" aria-label="Ombú Café, inicio">
+                <span class="logo-cuadro" aria-hidden="true">0</span>
+                <span>Ombú Café</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="flase" aria-controls="menu-principal" aria-label="Abrir menú">
+                <span class="barra"></span><span class="barrera"></span><span class="barra"></span>
+            </button>
+            <nav class="nav" id="menu-principal" aria-label="Principal">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="#carta">Carta</a></li>
+                    <li><a href="#reservas">Reservas</a></li>
+                    <li><a class="nav-ingresar" href="login.html">Ingresar</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img class="img-full" src="dist/imagenes/hero.svg" alt="Taza de café humeante sobre una mesa, con bloques de colores de fondo">
+            <div class="hero-tarjeta">
+                <h1>Café tostado esta mañana.</h1>
+                <p>Granos de especialidad, medialunas calientes y una mesa esperándote.</p>
+                <a class="boton" href="#reservas">Reservar mesa</a>
+            </div>
+        </section>
+
+        <section id="carta">
+            <div class="titulo-seccion">
+                <h2>La carta de hoy</h2>
+                <p>Cuatro clásicos de la casa. Todo se prepara al momento.</p>
+            </div>
+            <div class="carta">
+                <article class="bloque">
+                    <div><h3>Espresso</h3><p>Doble, intenso, con crema espesa.</p></div>
+                    <span class="precio">$ 90</span>
+                </article>
+                <article class="bloque">
+                    <div><h3>Flat white</h3><p>Leche texturizada y doble shot.</p></div>
+                    <span class="precio">$ 150</span>
+                </article>
+                <article class="bloque">
+                    <div><h3>Cold brew</h3><p>Infusionado 18 horas, servido con hielo.</p></div>
+                    <span class="precio">$ 170</span>
+                </article>
+                <article class="bloque">
+                    <div><h3>Medialunas</h3><p>Tres unidades, recién horneadas.</p></div>
+                    <span class="precio">$ 120</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="banner" id="reservas">
+            <img class="img-full" src="dist/imagenes/granos.svg" alt="Granos de café tostado sobre fondo ámbar">
+            <form class="formulario" id="form-reserva" novalidate>
+                <h2>Reservá tu mesa</h2>
+                <div class="camppo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                </div>
+                <div class="fila-doble">
+                    <div class="campo">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+                    <div class="campo">
+                        <label for="hora">Hora</label>
+                        <select name="hora" id="hora">
+                            <option>08:00</option><option>09:00</option><option>10:00</option>
+                            <option>11:00</option><option>15:00</option><option>16:00</option>
+                            <option>17:00</option><option>18:00</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="personas">Personas</label>
+                    <select name="personas" id="personas">
+                        <option>1 persona</option><option>2 personas</option><option>3 personas</option>
+                        <option>4 personas</option><option>5 personas</option><option>6 personas</option>
+                    </select>
+                </div>
+                <button class="boton boton-block" type="submit">Confirmar reserva</button>
+                <p class="mensaje" id="mensaje-reserva" role="status" aria-live="polite"></p>
+            </form>
+        </section>
     </main>
+
+    <footer class="pie">
+        <img class="img-full" src="dist/" alt="Frente del local de Ombú Café con toldo a rayas">
+        <div>
+            <h2>Ombú Café</h2>
+            <p>Av. de los Ombúes 1234, Montevideo</p>
+            <p>Lunes a domingo, de 8 a 19 h</p>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#carta">Carta</a></li>
+                <li><a href="login.html">Ingresar</a></li>
+            </ul>
+            <p style="margin-top:1rem">0 <span id="anio">2026</span> Ombú Café</p>
+        </div>
+    </footer>
 
     <script src="dist/js/js.js"></script>
 </body>
